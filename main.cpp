@@ -22,7 +22,7 @@ int main(){
     cout<<"Login / SignUp"<<endl;
     getline(cin,options);
     if(options=="Login" || options=="Logins"){
-        
+        cout<< "change" <<endl;
     } else{
         
     }
