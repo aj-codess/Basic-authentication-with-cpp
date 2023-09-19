@@ -3,19 +3,27 @@
 
 using namespace std;
 
-void gmail_dataBase(){
-    
-}
+vector<string>gmail_pool;
 
 void password_dataBase(){
-    
+
 }
 
 void existance(){
+    gmail_pool.push_back("jagyei339@gmail.com");
     string temp;
     cout<<"Enter gmail"<<endl;
     getline(cin,temp);
-
+    vector<string>::size_type num=0;
+    while(num<gmail_pool.size()){
+        if(temp==gmail_pool[num]){
+            break;
+            cout<<"Access granted"<<endl;
+        } else{
+            cout<<"access deneid"<<endl;
+        }
+        num++;
+    };
 };
 
 void gmail_checks(){
