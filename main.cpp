@@ -1,7 +1,15 @@
 #include <iostream>
 using namespace std;
 
+void dataBase(){
+    auto arr[];
+    
+}
+
 void existance(){
+    string temp;
+    cout<<"Enter gmail"<<endl;
+    getline(cin,temp);
 
 };
 
@@ -22,7 +30,7 @@ int main(){
     cout<<"Login / SignUp"<<endl;
     getline(cin,options);
     if(options=="Login" || options=="Logins"){
-        cout<< "change" <<endl;
+        existance();
     } else{
         
     }
