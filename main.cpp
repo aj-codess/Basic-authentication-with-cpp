@@ -1,8 +1,13 @@
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
-void dataBase(){
-    auto arr[];
+void gmail_dataBase(){
+    
+}
+
+void password_dataBase(){
     
 }
 
