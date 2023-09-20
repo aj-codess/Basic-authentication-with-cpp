@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 vector<string>gmail_pool;
 vector<string>pass_pool;
 
@@ -42,20 +41,47 @@ void existance(){
 
 
 
+void pass_match(){
+    //script a match algo in here
+}
+
+
 
 
 void pass_checks(){
 
-    char symbols[] = {'!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '[', ']', '{', '}', '<', '>', '?'};
-    string numbers[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
+    vector<string> symbols = {"!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "[", "]", "{", "}", "<", ">", "?"};
+    vector<string> numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
 
     string temp_pass_hold;
-    cout<<"Enter a valid password to create"<<endl;
+    cout<<"Enter a valid password to create"<<endl
+        <<"At Least password should have symbols and numbers within"<<endl;
     getline(cin,temp_pass_hold);
 
+    
+    bool symbol;
+    bool digit;
 
+if(temp_pass_hold.size()>=8){
+        vector<string>::size_type i=0;
+    while(i<temp_pass_hold.size()){
+
+        decltype(temp_pass_hold) character_holder=temp_pass_hold[i];
+        vector<string>::size_type inner_i=0;
+            while(inner_i<symbols.size()){
+                    if(character_holder==symbols[inner_i]){
+                        cout<<"fucked it worked"<<endl;
+                    }
+                inner_i++;
+            }
+        i++;
+    }
+}else{
+    cout<<"Password Too Short"<<endl;
+    pass_checks();
 };
 
+};
 
 
 
@@ -77,13 +103,6 @@ void gmail_checks(){
 };
 
 
-
-
-
-
-void pass_match(){
-
-}
 
 
 
