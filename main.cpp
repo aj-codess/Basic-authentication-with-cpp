@@ -47,11 +47,12 @@ void existance(){
 void pass_checks(){
 
     char symbols[] = {'!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '[', ']', '{', '}', '<', '>', '?'};
+    string numbers[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
 
     string temp_pass_hold;
     cout<<"Enter a valid password to create"<<endl;
     getline(cin,temp_pass_hold);
-    
+
 
 };
 
