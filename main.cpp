@@ -17,10 +17,9 @@ void existance(){
     vector<string>::size_type num=0;
     while(num<gmail_pool.size()){
         if(temp==gmail_pool[num]){
-            break;
             cout<<"Access granted"<<endl;
         } else{
-            cout<<"access deneid"<<endl;
+            cout<<"access denied"<<endl;
         }
         num++;
     };
@@ -42,7 +41,7 @@ int main(){
     string options;
     cout<<"Login / SignUp"<<endl;
     getline(cin,options);
-    if(options=="Login" || options=="Logins"){
+    if(options=="Login" || options=="login"){
         existance();
     } else{
         
