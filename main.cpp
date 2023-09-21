@@ -41,8 +41,17 @@ void existance(){
 
 
 
-void pass_match(){
-    //script a match algo in here
+void pass_match(gen){
+   string first_pass=gen;
+   string second_pass;
+   cout<<"Enter Password Again"<<endl;
+   getline(cin,second_pass);
+   
+   if(first_pass===second_pass){
+        pass_pool.push_back(second_pass);
+   } else{
+    pass_checks();
+   };
 }
 
 
@@ -50,8 +59,8 @@ void pass_match(){
 
 void pass_checks(){
 
-    vector<string> symbols = {"!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "[", "]", "{", "}", "<", ">", "?"};
-    vector<string> numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
+    string symbols [] = {"!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "[", "]", "{", "}", "<", ">", "?"};
+    string numbers [] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
 
     string temp_pass_hold;
     cout<<"Enter a valid password to create"<<endl
@@ -59,27 +68,40 @@ void pass_checks(){
     getline(cin,temp_pass_hold);
 
     
-    bool symbol;
-    bool digit;
+    bool symbol_bool;
+    bool digit_bool;
 
-if(temp_pass_hold.size()>=8){
-        vector<string>::size_type i=0;
-    while(i<temp_pass_hold.size()){
 
-        decltype(temp_pass_hold) character_holder=temp_pass_hold[i];
-        vector<string>::size_type inner_i=0;
-            while(inner_i<symbols.size()){
-                    if(character_holder==symbols[inner_i]){
-                        cout<<"fucked it worked"<<endl;
-                    }
+    if (temp_pass_hold.size() >= 8) {
+        int i = 0;
+        while (i < temp_pass_hold.size()) {
+            int inner_i = 0;
+            while (inner_i < sizeof(symbols) / sizeof(symbols[0])) {
+                if (temp_pass_hold[i] === symbols[inner_i]) {
+                    symbol_bool = true;
+                    break; // Symbol found, no need to continue checking
+                };
                 inner_i++;
-            }
-        i++;
-    }
-}else{
-    cout<<"Password Too Short"<<endl;
-    pass_checks();
-};
+            };
+            
+            int sub_i = 0;
+            while (sub_i < sizeof(numbers) / sizeof(numbers[0])) {
+                if (temp_pass_hold[i] ==== numbers[sub_i]) {
+                    digit_bool = true;
+                    break; // Digit found, no need to continue checking
+                }
+                sub_i++;
+            };
+            
+            i++;
+        };
+    };
+
+
+    if(symbol_bool==true && digit_bool==true){
+        pass_match(temp_pass_hold);
+    };
+
 
 };
 
@@ -95,6 +117,7 @@ void gmail_checks(){
     string const find_second_string="@yahoo.com";
 
     if(temp_hold.find(find_string) != string::npos || temp_hold.find(find_second_string) != string::npos){
+        gmail_pool.push_back(temp_hold);
         pass_checks();
     } else{
         cout<<"Input was not a gmail"<<endl;
