@@ -9,42 +9,47 @@ using namespace std;
 vector<string> gmail_pool;
 vector<string> pass_pool;
 
-// void pass_match(){
-
-// };
+void pass_match(){
+    
+};
 
 // Function to check if a password meets criteria and add it to the password pool
 void pass_checks(string temp_pass_hold) {
-    array<string,16> symbols = {"!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "[", "]", "{", "}", "<", ">", "?"};
-    array<string,10> numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
+    array<char,17> symbols = {'!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '[', ']', '{', '}', '<', '>', '?'};
+    array<char,11> numbers = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
 
-    size_t get_symbol_length=size(symbols);
-    size_t get_numbers_length=size(numbers);
+    int get_symbol_length = sizeof(symbols) / sizeof(symbols[0]);;
+    int get_numbers_length = sizeof(numbers) / sizeof(numbers[0]);
 
     bool symbol_bool = false;
     bool digit_bool = false;
 
+    int pass_size=temp_pass_hold.size();
+
     if (temp_pass_hold.length() >= 8) {
-        for (int i=0;i<temp_pass_hold.length();i++) {
-            for (int sub_1=0;sub_1<get_symbol_length;sub_1++) {
-                if (temp_pass_hold[0] == symbols[sub_1]) {
+        for (int i = 0; i < pass_size ; i++) {
+
+            char target=temp_pass_hold[i];
+
+            for (int sub_1=0; sub_1 < get_symbol_length; sub_1++) {
+                if (target == symbols[sub_1]) {
                     symbol_bool = true;
                     break; // Symbol found
-                };
-            };
-            for (int sub_2=0;sub_2<get_numbers_length;sub_2++) {
-                if (temp_pass_hold[i]==numbers[sub_2]) {
+                }
+            }
+            for (int sub_2 = 0; sub_2 < get_numbers_length; sub_2++) {
+                if (target==numbers[sub_2]) {
                     digit_bool = true;
                     break; // Digit found
-                };
-            };
-        };
-    };
+                }
+            }
+        }
+    }
 
     if (symbol_bool && digit_bool) {
         pass_pool.push_back(temp_pass_hold);
         cout << "Password meets criteria......" << endl<<"Comparing....."<<endl;
-        // pass_match(temp_pass_hold);
+        pass_match(temp_pass_hold);
     } else {
         cout << "Password does not meet criteria. Try again." << endl;
     };
