@@ -9,9 +9,54 @@ using namespace std;
 vector<string> gmail_pool;
 vector<string> pass_pool;
 
-void pass_match(){
-    
-};
+void login_logic(){
+    string temp_gmail;
+    string temp_pass;
+    cout<<"Enter Gmail"<<endl;
+    getline(cin,temp_gmail);
+    cout<<"Enter Password"<<endl;
+    getline(cin,temp_pass);
+
+    bool gmail_bool = false;
+    bool password_bool = false;
+
+    int get_gmail_v_size=gmail_pool.size();
+    int get_pass_v_size=pass_pool.size();
+
+    for(int i=0; i < get_gmail_v_size; i++){
+        if(temp_gmail == gmail_pool[i]){
+            gmail_bool = true;
+            break;
+        }
+    }
+
+    for(int ii=0; ii < get_pass_v_size ; ii++){
+        if(temp_pass == pass_pool[ii]){
+            password_bool=true;
+            break;
+        }
+    }
+
+    if(gmail_bool && password_bool){
+        cout<<"successfully Logged In"<<endl;
+    } else{
+        cout<<"Wrong Login Details"<<endl;
+    }
+
+}
+
+void pass_match(string old_pass){
+    string new_pass;
+    cout<<"Enter Password Again"<<endl;
+    getline(cin,new_pass);
+
+    if(old_pass==new_pass){
+        pass_pool.push_back(new_pass);
+        cout<<"have successfuly signed up"<<endl;
+    } else{
+        cout<<"password doesnt match"<<endl;
+    }
+}
 
 // Function to check if a password meets criteria and add it to the password pool
 void pass_checks(string temp_pass_hold) {
@@ -83,6 +128,7 @@ int main() {
 
     if (options == "Login" || options == "login") {
         // Implement your login logic here
+        login_logic();
         cout << "Not implemented: Login logic" << endl;
     } else if (options == "SignUp" || options == "signup") {
         gmail_checks();
