@@ -12,9 +12,9 @@ vector<string> pass_pool;
 void login_logic(){
     string temp_gmail;
     string temp_pass;
-    cout<<"Enter Gmail"<<endl;
+    cout<<"------------Enter Gmail-------------"<<endl;
     getline(cin,temp_gmail);
-    cout<<"Enter Password"<<endl;
+    cout<<"------------Enter Password----------"<<endl;
     getline(cin,temp_pass);
 
     bool gmail_bool = false;
@@ -38,16 +38,16 @@ void login_logic(){
     }
 
     if(gmail_bool && password_bool){
-        cout<<"successfully Logged In"<<endl;
+        cout<<"--------successfully Logged In------------"<<endl;
     } else{
-        cout<<"Wrong Login Details"<<endl;
+        cout<<"---------Wrong Login Details--------------"<<endl;
     }
 
 }
 
 void pass_match(string old_pass){
     string new_pass;
-    cout<<"Enter Password Again"<<endl;
+    cout<<"-------------Enter Password Again-------------"<<endl;
     getline(cin,new_pass);
 
     if(old_pass==new_pass){
@@ -103,7 +103,7 @@ void pass_checks(string temp_pass_hold) {
 // Function to check if a Gmail address is valid and add it to the Gmail pool
 void gmail_checks() {
     string temp_hold;
-    cout << "Enter Gmail address: ";
+    cout << "------------Enter Gmail address: -------------"<<endl;
     getline(cin, temp_hold);
 
     string const find_string = "@gmail.com";
@@ -112,7 +112,8 @@ void gmail_checks() {
     if (temp_hold.find(find_string) != string::npos || temp_hold.find(find_second_string) != string::npos) {
         gmail_pool.push_back(temp_hold);
         string temp_pass_hold;
-        cout << "Enter a valid password to create an account: ";
+        cout << "Enter a valid password to create an account: "<<endl
+                <<"Password show contain at least a symbol and a number"<<endl;
         getline(cin, temp_pass_hold);
         pass_checks(temp_pass_hold);
     } else {
@@ -123,17 +124,15 @@ void gmail_checks() {
 
 int main() {
     string options;
-    cout << "Login / SignUp" << endl;
+    cout << "------------------Login / SignUp------------------" << endl;
     getline(cin, options);
 
     if (options == "Login" || options == "login") {
-        // Implement your login logic here
         login_logic();
-        cout << "Not implemented: Login logic" << endl;
     } else if (options == "SignUp" || options == "signup") {
         gmail_checks();
     } else {
-        cout << "Invalid option." << endl;
+        cout << "---------------Invalid option.---------------" << endl;
     }
 
     return 0;
