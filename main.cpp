@@ -3,6 +3,7 @@
 #include <string>
 #include <cstddef>
 #include <array>
+#include <fstream>
 
 using namespace std;
 
@@ -102,6 +103,10 @@ void pass_checks(string temp_pass_hold) {
 
 // Function to check if a Gmail address is valid and add it to the Gmail pool
 void gmail_checks() {
+    string user_name;
+    cout<<"------------------Enter Username---------------"<<endl;
+    getline(cin,user_name);
+
     string temp_hold;
     cout << "------------Enter Gmail address: -------------"<<endl;
     getline(cin, temp_hold);
